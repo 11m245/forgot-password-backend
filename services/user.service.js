@@ -1,4 +1,4 @@
-import { client } from "../shortURL.js";
+import { client } from "../index.js";
 
 export async function addUser(data) {
   return await client
