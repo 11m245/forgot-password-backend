@@ -98,7 +98,9 @@ app.post("/login", async function (request, response) {
 
 app.post("/forgot-password", async function (request, response) {
   const data = request.body;
+  // console.log("rrr", data);
   const userfromDB = await getUserFromDBByUserName(data);
+  // console.log("response from db", userfromDB);
   if (userfromDB) {
     response
       .status(200)
@@ -148,6 +150,7 @@ async function generateToken(userfromDB) {
 }
 app.post("/sendResetLink", async function (request, response) {
   const data = request.body;
+  console.log("got ddd", data);
   const userfromDB = await getUserFromDBByUserName(data);
   if (userfromDB) {
     const resetToken = await generateToken(userfromDB);
